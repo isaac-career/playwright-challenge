@@ -7,18 +7,49 @@ test.describe("test suit", async() => {
   test('user buying process', async ({ page }) => {
 
     await test.step('user search for iphones', async() =>{
-      //await page.goto('https://uat-survey.taxcreditco.com/automation-challenge');
-      await page.goto('https://uat-surveyengine.taxcreditco.com/survey.aspx?enc=5a209mATlQcKyXM3xRqb6z9qoFI14Q1%2beuSy4Mvyz4F8b8A4fB6L2uEXfKik6kiCktvzGeqTOq0UG67Ti7QMMKDdhjh3KJTZme0Ugry8N7PenULbtCq%2bCn54k%2fpHP2%2boOewCjvCII3inlEc52rpRukQk9JgtCXf7rJqVD892AUOmoicmJjiqWUBkpB0ZBTMkn2tmy3ROsIcF1fX3RqeLNyOcPOXso2j7652sIVO9V0bghBGXKIj7tSpRM5RKJj6uNsUXqGhLAUBvEgr%2b6AC04w%3d%3d');
+      await page.goto('https://uat-survey.taxcreditco.com/automation-challenge');
+      //await page.goto('https://uat-surveyengine.taxcreditco.com/survey.aspx?enc=5a209mATlQcKyXM3xRqb6z9qoFI14Q1%2beuSy4Mvyz4F8b8A4fB6L2uEXfKik6kiCktvzGeqTOq0UG67Ti7QMMKDdhjh3KJTZme0Ugry8N7PenULbtCq%2bCn54k%2fpHP2%2boOewCjvCII3inlEc52rpRukQk9JgtCXf7rJqVD892AUOmoicmJjiqWUBkpB0ZBTMkn2tmy3ROsIcF1fX3RqeLNyOcPOXso2j7652sIVO9V0bghBGXKIj7tSpRM5RKJj6uNsUXqGhLAUBvEgr%2b6AC04w%3d%3d');
       
       await page.pause();
       //await page.locator('input[name="SurveyControl$Question943$_as17719$_ai1647_as17719$ctl01"]').click();
-      await page.getByLabel('First Name', {exact: true}).fill('hi');
-      //await page.getByRole('textbox', { name: 'SurveyControl$Question943$_as53307$_ai1647_as53307$ctl01' }).fill('buy some sausages');
+      await page.getByLabel('First Name', {exact: true}).fill('Aaron');
+      await page.waitForTimeout(300);
+
+      await page.getByLabel('Last Name').fill('Smith');
+      await page.waitForTimeout(300);
+
+      await page.getByLabel('Email Address').fill('aaron@topmail.com');
+      await page.waitForTimeout(300);
+
+      await page.getByLabel('Street Address').fill('Manchester');
+      await page.waitForTimeout(300);
+
+      await page.getByLabel('City').fill('Manchester');
+      await page.waitForTimeout(300);
+
+      await page.getByLabel('Zip Code').fill('01450');
+      await page.waitForTimeout(300);
 
       await page.pause();
 
 
       await page.click('input[id="SurveyControl_SurveySubmit"]')
+      await page.pause();
+
+      await page.locator('#SurveyControl_Question11396').getByText('No').click();
+      await page.locator('#SurveyControl_Question11396').getByText('No').click();
+      await page.locator('#SurveyControl_Question11397').getByText('No').click();
+      await page.locator('#SurveyControl_Question914').getByText('No').click();
+      await page.locator('#SurveyControl_Question915').getByText('No').click();
+      await page.locator('#SurveyControl_Question11361').getByText('No').click();
+      await page.locator('#SurveyControl_Question1244').getByText('No').click();
+
+      await page.pause();
+      await page.click('input[id="SurveyControl_SurveySubmit"]')
+      await page.pause();
+
+      // getByRole('button', { name: 'Submit form' })
+      await page.getByRole('button', { name: 'Submit form' }).click();
       await page.pause();
     })
     
