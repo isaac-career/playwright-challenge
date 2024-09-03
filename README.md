@@ -1,6 +1,7 @@
 To run test:
 
--Clone repository
+-Clone repository.
+
 into project folder path run:
 
   - npm install
